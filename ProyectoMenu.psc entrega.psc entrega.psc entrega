@@ -1,0 +1,836 @@
+Algoritmo ProyectoMenu
+	Definir opcion, opc1, opc2, opc3, opc4 Como Entero
+	Mientras opcion<>4 Hacer
+		Borrar Pantalla
+		Escribir "          ***  Menu principal  ***               "
+		Escribir "1) Ejercicios Secuenciales"
+		Escribir "2) Ejercicios Selectivos"
+		Escribir "3) Ejercicios Ciclos"
+		Escribir "4)Salir"
+		Escribir "******Elija una opcion******" 
+		Leer opcion
+		Segun opcion hacer
+			1:
+				Mientras opc1<>11  Hacer
+					Borrar Pantalla
+					Escribir "1) Deducir el resultado de las expresiones matematicas"
+					Escribir "2) Calcular la suma, resta, multiplicacion y division de dos numeros"
+					Escribir "3) Dado tres numeros calcular la resolvente"
+					Escribir "4) Dado dos lados de un triangulo calcular la hipotenusa"
+					Escribir "5) Dado un numero imprimir si es par o impar"
+					Escribir "6) Dado un numero binario de 4 dijitos imprimir su valor"
+					Escribir "7) Dado un numero de 4 dijitos imprimir sus unidades, decenas centenas y unid. de mil"
+					Escribir "8) Dado un caracter imprimir si es un digito, una constante o un caracter especial"
+					Escribir "9) Dado dos caracteres indicar si el primer carácter es igual, mayor o menor que el segundo"
+					Escribir "10) Dada una frase cualquiera presentarla en mayúscula y minuscula"
+					Escribir "11) Salir"
+					Escribir "******Elija una de las opciones******" ;
+					Leer opc1;
+					Segun opc1 Hacer
+						1:
+							//¿Siguiendo la prioridad de operadores, convierta a expresión matemática,
+							//resuelva e indique en cuál tipo de variable almacenará el resultado de las
+							//siguientes expresiones:
+							//Entrada: resultado1, resultado4, resultado5 Como Logico; resultado2 Como Entero;resultado3 Como Real;
+							//Proceso:Valida las expresiones con sus respectivas operaciones
+							//Presentar el tipo de variable 
+							Escribir ejercicio1
+							Definir resultado1, resultado4, resultado5 Como Logico;
+							Definir resultado2 Como Entero;
+							Definir resultado3 Como Real;
+							resultado1 <- (5 + 3 * 2) + 9 > 3 * 5 * (14 % 3);
+							resultado2 <- 2 * (4 - 10 + 8)/2* 36 *(1/2);
+							resultado3 <- (260 / 12) + (54 % 3) - (85 % 7);
+							resultado4 <- (48 < (2 * 3)) o ((2 * 7) < 12);
+							resultado5 <- ((8 > 2) o (932 < 23) ) y (4 == 2);
+							Escribir "El resultado de la expresion es: ",resultado1;
+							Escribir "El resultado de la expresion es: ",resultado2;
+							Escribir "El resultado de la expresion es: ",resultado3;
+							Escribir "El resultado de la expresion es: ",resultado4;
+							esperar 3 segundos
+						2:
+							//Dados dos (2) números calcule la suma, resta, multiplicación, división y módulo.
+							//Entrada: num1, num2, suma, resta, multiplicacion, division como real
+							//proceso: num1+num2 ; num1-num2 ; num1*num2 ; num1/num2
+							Escribir ejercicio2
+							Definir num1, num2, suma, resta, multiplicacion, division como real
+							Escribir "Ingrese el primer numero:"
+							Leer num1
+							Escribir "Ingrese el segundo numero:"
+							Leer num2
+							suma <- num1 + num2
+							resta <- num1 - num2
+							multiplicacion <- num1 * num2
+							Si num2 <> 0 entonces
+								division <- num1 / num2
+							Sino
+								Escribir "No es posible dividir entre cero."
+							Fin Si
+							Escribir "La suma es: ", suma
+							Escribir "La resta es: ", resta
+							Escribir "La multiplicacion es: ", multiplicacion
+							Si num2 <> 0 entonces
+								Escribir "La division es: ", division
+							Fin Si
+							esperar 4 segundos
+						3:
+							//Dados tres (3) números, Hacer una aplicación que calcule la resolvente.
+							Escribir ejercicio3
+							Definir a, b, c, discriminante, x1, x2 como real
+							//Solicitar los coeficientes de la ecuación cuadrática
+							Escribir "Ingrese el valor de a:"
+							Leer a
+							Escribir "Ingrese el valor de b:"
+							Leer b
+							Escribir "Ingrese el valor de c:"
+							Leer c
+							//Calcular el discriminante
+							discriminante <- b^2 - 4*a*c
+							Si discriminante > 0 entonces
+								//Calcular las raíces reales
+								x1 <- (-b + raiz((discriminante) / (2*a)))
+								x2 <- (-b - raiz((discriminante) / (2*a)))
+								Escribir "Las raices son x1 =", x1, " y x2 =", x2
+							Sino 
+								Si discriminante = 0 entonces
+									//Calcular la raíz real doble
+									x1 <- -b / (2*a)
+									Escribir "La ecuacion tiene una raiz doble x =", x1
+								Sino
+									Escribir "La ecuacion no tiene raices reales."
+								Fin Si
+							FinSi
+							esperar 3 segundos
+						4:
+							Escribir ejercicio4
+							Definir a,b,c como real;
+							Escribir "Escribe el cateto A";
+							Leer a;
+							Escribir "Escribe el cateto B";
+							Leer b;
+							c <- RC (a*a + b*b)
+							Escribir "La hipotenusa del triangulo es: ",c;
+							esperar 3 segundos
+							
+						5:
+							Escribir ejercicio5
+							Definir n Como Entero;
+							Escribir " ingrese un numero";
+							Leer n;
+							si n mod 2 == 0 Entonces
+								Escribir "El numero ",n," es par: ";
+							SiNo
+								Escribir "El numero ",n," es impar: ";
+							FinSi
+							esperar 4 segundos
+						6:
+							Escribir ejercicio6
+							Definir n,x,binario como real;
+							Escribir "Escribe un numero";
+							Leer n;
+							Escribir "El numero ",n," convertido a binario es: ";
+							x <- 1;
+							binario <- 0;
+							Mientras n >= 1 Hacer
+								Si n mod 2 == 1 Entonces
+									binario <- binario + x;
+								FinSi
+								n <- trunc(n/2);
+								x <- x * 10;
+							FinMientras
+							Escribir binario;
+							esperar 4 segundos
+						7:
+							Escribir ejercicio7
+							Definir numero, unidades, decenas, centenas, unidadesDeMil como real
+							Escribir "Ingrese un numero de cuatro digitos:";
+							Leer numero;
+							unidadesDeMil <- numero / 1000;
+							numero <- numero % 1000;
+							centenas <- numero / 100;
+							numero <- numero % 100;
+							decenas <- numero / 10;
+							unidades <- numero % 10;
+							
+							Escribir "Unidades de mil:", unidadesDeMil;
+							Escribir "Centenas:", centenas;
+							Escribir "Decenas:", decenas;
+							Escribir "Unidades:", unidades;
+							esperar 4 segundos
+						8:
+							Escribir ejercicio8
+							Definir caracter como caracter
+							Escribir "Ingrese un caracter:";
+							Leer caracter;
+							Si caracter >= '0' y caracter <= '9' entonces
+								Escribir "El caracter ingresado es un digito."
+							Sino 
+								Si (caracter >= 'a' y caracter <= 'z') o (caracter >= 'A' y caracter <= 'Z') entonces
+									Si caracter = 'a' o caracter = 'e' o caracter = 'i' o caracter = 'o' o caracter = 'u' o caracter = 'A' o caracter = 'E' o caracter = 'I' o caracter = 'O' o caracter = 'U' entonces
+										Escribir "El caracter ingresado es una vocal."
+									Sino
+										Escribir "El caracter ingresado es una consonante."
+									Fin Si
+								Sino
+									Escribir "El caracter ingresado es un caracter especial."
+								Fin Si
+							FinSi
+							esperar 4 segundos
+						9:
+							Escribir ejercicio9
+							Definir caracter1, caracter2 como caracter
+							Escribir "Ingrese el primer caracter:"
+							Leer caracter1
+							Escribir "Ingrese el segundo caracter:"
+							Leer caracter2
+							
+							Si caracter1 = caracter2 entonces
+								Escribir "El primer caracter es igual al segundo caracter."
+							Sino 
+								Si caracter1 > caracter2 entonces
+									Escribir "El primer caracter es mayor que el segundo caracter."
+								Sino
+									Escribir "El primer caracter es menor que el segundo caracter."
+								Fin Si
+							FinSi
+							esperar 4 segundos
+						10:
+							Escribir ejercicio10
+							Definir frase Como Caracter;
+							Definir x Como Entero;
+							Escribir "Ingresa un texto";
+							leer frase;
+							Escribir "Converti a ";
+							Escribir "1 = Mayusculas";
+							Escribir "2 = Minusculas";
+							leer x;
+							
+							si x > 0 y x < 3 Entonces
+								si x == 1 Entonces
+									Escribir "El texto en mayusculas es: ",Mayusculas(frase);
+								sino
+									Escribir "El texto en minusculas es: ",Minusculas(frase);
+								FinSi
+							SiNo
+								Escribir "Ingresa una opcion correcta";
+							FinSi
+							esperar 4 Segundos
+						11:
+							Escribir "Regresando al menu anterior"
+						esperar 5 Segundos;
+						De Otro Modo:
+							Escribir "La opcion indicada no pertenece al menu, intete de nuevo";
+					FinSegun
+				FinMientras
+			2:
+				Mientras opc2<>12 Hacer
+					Borrar Pantalla
+					Escribir "1) Indicar si el año ingresado es bisiesto o no";
+					Escribir "2) Determinar si una cantidad de digitos es escapicua";
+					Escribir "3) Para un valor en segundos presentar su equivalente en minutos, hoas y dias";
+					Escribir "4) Determinar e mayor de tres numeros ingresados";
+					Escribir "5) Determinar el valor a pagar en un estacionamiento";
+					Escribir "6) Calcular el peso de una persona tomando en cuenta su edad";
+					Escribir "7) Programa para ingresar una fecha y determinar el numero de dias que han pasado desde el año 2014" ;
+					Escribir "8) Programa para ingresar valores del 1 al 12 e imprimir el mes correspondiente";
+					Escribir "9) Descuento por comprar mayores a $1000";
+					Escribir "10) Ingresar dos numeros y realizar las operaciones matematicas";
+					Escribir "11) Salir";
+					Escribir "          Elija una de las opciones          ";
+					Leer opc2;
+					Segun opc2 Hacer
+						1:
+							Escribir ejercicio11
+							Definir aaaa, mes, dia Como Entero
+							Escribir "Ingrese el año:"
+							Leer aaaa
+							Escribir "Ingrese el mes:"
+							Leer mes
+							Escribir "Ingrese el día:"
+							Leer dia
+							
+							Si (aaaa % 400 = 0) Entonces
+								Escribir "El año ", aaaa, " es bisiesto."
+							Sino 
+								Si (aaaa % 4 = 0) Y (aaaa % 100 <> 0) Entonces
+									Escribir "El año ", aaaa, " es bisiesto."
+								Sino
+									Escribir "El año ", aaaa, " no es bisiesto."
+								Fin Si
+							FinSi
+							esperar 4 segundos
+						2:
+							Escribir ejercicio12
+							Definir jj, dig1, dig2, dig3, dig4, dig5 Como Entero;
+							Escribir "escribir un numero de 5 digitos: ";
+							leer jj;
+							
+							si jj >= 10000 y jj <= 99999 Entonces
+								dig1 = trunc (jj / 10000) mod 10;
+								dig2 = trunc (jj / 1000) mod 10;
+								dig3 = trunc (jj / 100) mod 10;
+								dig4 = trunc (jj / 10) mod 10;
+								dig5 = trunc (jj mod 10) mod 10;
+								Escribir " El digito 1 es: ", dig1;
+								Escribir " El digito 2 es: ", dig2;
+								Escribir " El digito 3 es: ", dig3;
+								Escribir " El digito 4 es: ", dig4;
+								Escribir " El digito 5 es: ", dig5;
+								si dig1 = dig5 y dig2 = dig4 Entonces
+									Escribir " El numero es capicua: ";
+								SiNo
+									Escribir " El numero que ingreso no es capicua: ";
+								FinSi
+							SiNo
+								Escribir " El numero que ingreso no tiene 5 digitos: ";
+							FinSi
+						3:
+							Escribir ejercicio13
+							Definir segundos, minutos, horas, dias Como Real
+							Escribir "Ingrese la cantidad de segundos:"
+							Leer segundos
+							minutos <- segundos / 60
+							horas <- minutos / 60
+							dias <- horas / 24
+							Escribir "Equivalente en minutos:", minutos
+							Escribir "Equivalente en horas:", horas
+							Escribir "Equivalente en días:", dias
+							esperar 4 segundos
+						4:
+							Escribir ejercicio14
+							Definir A, B, C, mayorr, segundoMayor Como Entero
+							Escribir "Ingrese el numero A:"
+							Leer A
+							Escribir "Ingrese el numero B:"
+							Leer B
+							Escribir "Ingrese el numero C:"
+							Leer C
+							Si (A = B) Y (B = C) Entonces
+								Escribir "Los numeros A, B y C son iguales."
+							Sino
+								mayorr <- A
+								segundoMayor <- B
+								
+								Si (B > mayorr) Entonces
+									mayorr <- B
+									segundoMayor <- A
+								FinSi
+								
+								Si (C > mayorr) Entonces
+									segundoMayor <- mayorr
+									mayorr <- C
+								Sino 
+									Si (C > segundoMayor) Entonces
+										segundoMayor <- C
+									FinSi
+									
+									Escribir "El numero mayor es:", mayorr
+									Escribir "El segundo mayor es:", segundoMayor
+								Fin Si
+							FinSi
+							esperar 4 segundos
+						5:
+							Escribir ejercicio15
+							Definir horaEntrada, minutoEntrada, horaSalida, minutoSalida Como Entero
+							Definir montoTotal Como Real
+							Escribir "Ingrese la hora de entrada (formato 24 horas):"
+							Leer horaEntrada
+							Escribir "Ingrese los minutos de entrada:"
+							Leer minutoEntrada
+							Escribir "Ingrese la hora de salida (formato 24 horas):"
+							Leer horaSalida
+							Escribir "Ingrese los minutos de salida:"
+							Leer minutoSalida
+							Si (horaEntrada > horaSalida) Entonces
+								Escribir "Error: La hora de entrada no puede ser mayor que la hora de salida."
+							Sino
+								montoTotal <- 0
+								Si (minutoEntrada > minutoSalida) Entonces
+									montoTotal <- (horaSalida - horaEntrada - 1) * 1.5
+									montoTotal <- montoTotal + 1.5
+								Sino
+									montoTotal <- (horaSalida - horaEntrada) * 1.5
+									
+									Si (minutoSalida - minutoEntrada > 29) Entonces
+										montoTotal <- montoTotal + 1.5
+									Sino
+										montoTotal <- montoTotal + 0.5
+									Fin Si
+								Fin Si
+								Escribir "El monto a pagar es:", montoTotal
+							Fin Si
+							esperar 4 segundos
+						6:
+							Escribir ejercicio16
+							Definir pesoLibras, estaturaCm Como Real
+							Definir pesoKg, estaturaM, IMC Como Real
+							Definir categoria Como Cadena
+							Escribir "Ingrese el peso en libras:"
+							Leer pesoLibras
+							Escribir "Ingrese la estatura en centímetros:"
+							Leer estaturaCm
+							pesoKg <- pesoLibras * 0.453592
+							estaturaM <- estaturaCm / 100
+							IMC <- pesoKg / (estaturaM * estaturaM)
+							
+							Si (IMC < 16) Entonces
+								categoria <- " Criterio de ingreso"
+							Sino 
+								Si (IMC >= 16) Y (IMC <= 16.9) Entonces
+									categoria <- " Infrapeso"
+								Sino 
+									Si (IMC >= 17) Y (IMC <= 18.4) Entonces
+										categoria <- " Bajo peso"
+									Sino 
+										Si (IMC >= 18.5) Y (IMC <= 24.9) Entonces
+											categoria <- " Peso normal"
+										Sino 
+											Si (IMC >= 25) Y (IMC <= 29.9) Entonces
+												categoria <- " Sobrepeso"
+											Sino 
+												Si (IMC >= 30) Y (IMC <= 34.9) Entonces
+													categoria <- " Obesidad pre-mórbida"
+												Sino 
+													Si (IMC >= 35) Y (IMC <= 45) Entonces
+														categoria <- " Obesidad mórbida"
+													Sino
+														categoria <- "Obesidad híper-mórbida"
+													FinSi
+												FinSi
+											FinSi
+										FinSi
+									FinSi
+								FinSi
+							FinSi
+							Escribir "Peso en kilogramos: ", pesoKg
+							Escribir "IMC: ", IMC
+							Escribir "Categoría: ", categoria
+							esperar 4 segundos
+						7:
+							Escribir ejercicio17
+							Definir dia, mes, totalDias Como Entero;
+							
+							Escribir "Ingrese el día:"; 
+							Leer dia;
+							
+							Escribir "Ingrese el mes:"; 
+							Leer mes;
+							
+							totalDias = 0;
+							
+							totalDias = totalDias + (mes - 1) * 31; 
+							
+							Si mes > 2 entonces
+								totalDias = totalDias - ((mes - 1));
+							FinSi
+							
+							totalDias = totalDias + dia - 1;
+							
+							Escribir "El número de días pasados desde el 1 de enero de 2014 hasta la fecha ingresada es:", totalDias;
+							
+							esperar 4 Segundos
+						8:
+							Escribir ejercicio18
+							Definir numeroMes Como Entero
+							Escribir "Ingrese un número entre 1 y 12:"
+							Leer numeroMes
+							Segun numeroMes Hacer
+								Caso 1:
+									Escribir "Pertenece al mes de Enero"
+								Caso 2:
+									Escribir "Pertenece al mes de Febrero"
+								Caso 3:
+									Escribir "Pertenece al mes de Marzo"
+								Caso 4:
+									Escribir "Pertenece al mes de Abril"
+								Caso 5:
+									Escribir "Pertenece al mes de Mayo"
+								Caso 6:
+									Escribir "Pertenece al mes de Junio"
+								Caso 7:
+									Escribir "Pertenece al mes de Julio"
+								Caso 8:
+									Escribir "Pertenece al mes de Agosto"
+								Caso 9:
+									Escribir "Pertenece al mes de Septiembre"
+								Caso 10:
+									Escribir "Pertenece al mes de Octubre"
+								Caso 11:
+									Escribir "Pertenece al mes de Noviembre"
+								Caso 12:
+									Escribir "Pertenece al mes de Diciembre"
+								De Otro Modo:
+									Escribir "Numero de mes invalido"
+							Fin Segun
+							esperar 3 segundos
+						9:
+							Escribir ejercicio19
+							Definir cantidad, descuento Como Real;
+							Escribir "Escribe la cantidad comprada";
+							leer cantidad;
+							descuento <- 0;
+							si cantidad > 1000 Entonces
+								descuento <- cantidad * 0.20;
+								
+							FinSi
+							Escribir "La cantidad a pagar ya con el descuento aplicado es: $ ", cantidad;
+							Escribir "El descuento aplicado es: $ ", descuento;
+							esperar 3 segundos
+						10:
+							Escribir ejercicio20
+							Definir a,b,x como real;
+							Escribir "Escribe dos numeros";
+							leer a,b;
+							x <- 0;
+							Mientras x <> 5 hacer
+								escribir "Elige una opcion ";
+								Escribir "1 = suma";
+								Escribir "2 = resta";
+								Escribir "3 = multiplicacion ";
+								Escribir "4 = division";
+								Escribir "5 = salir";
+								leer x;
+								segun x
+									1:
+										Escribir "La suma de ",a," + ",b," = ",a+b;
+									2:
+										Escribir "La resta de ",a," - ",b," = ",a-b;
+									3:
+										Escribir "La multiplicacion de ",a," x ",b," = ",a*b;
+									4:
+										Escribir "La division de ",a," / ",b," = ",a/b;
+									De Otro Modo:
+										x = 5;
+								FinSegun
+							FinMientras
+							esperar 3 segundos
+						11:
+							Escribir "Regresando al menu anterior"
+							Esperar 3 Segundos
+						De Otro Modo:
+							Escribir "La opcion ingresada no corresponde al menu, vuelva a intentar"
+							esperar 2 segundos
+					FinSegun
+				FinMientras
+				
+			3:
+				Mientras opc3 <> 16 Hacer
+					Escribir "1)  Dado un numero entero calcular e imprimir cuando digitos tiene"
+					Escribir "2)  Dado un numero determinar si es capicua"
+					Escribir "3)  Algoritmo que presente los divisores de un numero"
+					Escribir "4)  Algpritmo que presente la suma de los divisores de un numero"
+					Escribir "5)  Algoritmo que presente la cantidad de divisores de un numero"
+					Escribir "6)  Algoritmo que indique si un numero es perfecto"
+					Escribir "7)  Dado un numero determinar si es primo"
+					Escribir "8)  Dado un valor entero hacer el calculo del valor factorial"
+					Escribir "9)  Dado un numero que establezca una contraseña de diez digitos"
+					Escribir "10) Algoritmo que informe dado un numero que numero es mayor y menor"
+					Escribir "11) Determinar la edad, peso y estatura promedio de un grupo de personas"
+					Escribir "12) Algoritmo que imprima a tabla de multiplicar desde el 1 hasta la 10"
+					Escribir "13) Algoritmo que multiplique dos numeros por medio de sumas sucesivas"
+					Escribir "14) Dado N numeros positivos calcular el promedio de esta serie"
+					Escribir "15) Algoritmo que divida dos numeros por medio de restas sucesivas"
+					Escribir "16) ****Salir**** ";
+					Escribir "Elija una de las opciones"
+					Leer opc3;
+					Segun opc3 Hacer
+						1:
+							Escribir ejercicio21
+							definir n Como Entero;
+							escribir " escribir un numero: ";
+							leer n;
+							contador <- 0
+							mientras n >= 1 Hacer
+								n <- trunc (n/10);
+								contador <- contador + 1
+							FinMientras
+							escribir " el numero tiene ",contador, " digitos";
+							esperar 3 segundos
+						2:
+							Escribir ejercicio22
+							definir nu, a, b Como Entero;
+							escribir " dame un numero de tres digitos: ";
+							leer nu;
+							
+							a <- trunc (n/100);
+							b <- nu mod 10;
+							si a == b Entonces
+								escribir " el numero ",nu," es un  numero capicua: ";
+							SiNo
+								escribir " el numero ",nu," no es un numero capicua: ";
+							FinSi
+							esperar 3 segundos
+						3:
+							Escribir ejercicio23
+							Definir nume,x Como Entero;
+							Escribir "Ingresa un numero";
+							leer nume;
+							x <- 1;
+							Mientras x <= nume Hacer
+								si nume mod x == 0 Entonces;
+									Escribir "Los divisores de ", nume, " son ";
+									Escribir x;
+								FinSi
+								x <- x + 1;
+							FinMientras
+							esperar 4 segundos
+						4:
+							Escribir ejercicio24
+							definir numer, i como entero;
+							definir suma como real;
+							Escribir "introducir un numero: ";
+							Leer numer;
+							suma <- 0;
+							Escribir " los divisores de ",n ," son : ";
+							Para i<-1 Hasta numer Hacer
+								Si numer mod i = 0 Entonces
+									Escribir i;
+									suma <- suma + i;
+								FinSi
+							FinPara
+							Escribir "La suma de los divisores de ",n ," es: ";
+							Escribir suma;
+							esperar 4 segundos
+						5:
+							Escribir ejercicio25
+							Definir numero, contadorDivisores Como Entero
+							Escribir "Ingrese un número:"
+							Leer numero
+							contadorDivisores <- 0
+							
+							Para i <- 1 Hasta numero Hacer
+								Si numero % i == 0 Entonces
+									contadorDivisores <- contadorDivisores + 1
+								Fin Si
+							Fin Para
+							Escribir "La cantidad de divisores del numero ", numero , " es: ", contadorDivisores;
+							esperar 4 segundos
+						6:
+							Escribir ejercicio26
+							Definir i,n,suma Como Entero;
+							Escribir "Ingresa un numero: ";
+							leer n;
+							i <- 2;
+							suma <- 0;
+							Mientras i <= n Hacer
+								si n % i == 0 Entonces
+									suma <- suma + trunc(n/i);
+									
+								FinSi
+								i <- i + 1;
+							FinMientras
+							si suma == n Entonces
+								Escribir "El numero es perfecto: ";
+							SiNo
+								Escribir "No numero no es perfecto: ";
+							FinSi
+							esperar 4 segundos
+						7:
+							Escribir ejercicio27
+							definir x, n, contador Como Entero;
+							escribir " escribir un numero: ";
+							leer n;
+							x <- 1;
+							contador <- 0;
+							mientras x <= n Hacer
+								si n mod x == 0 Entonces
+									contador <- contador + 1;
+								FinSi
+								x <- x + 1;
+							FinMientras
+							
+							si contador == 2 Entonces
+								escribir " el numero ",n," es primo: ";
+							SiNo
+								escribir " el numero ",n," no es primo: ";
+							FinSi
+							esperar 4 segundos
+						8:
+							Escribir ejercicio28
+							definir numer, factorial, x Como Real;
+							escribir " ingrese un numero: ";
+							leer numer;
+							si numer < 0 Entonces
+								escribir " el numero ",numer," no se puede calcular: ";
+							SiNo
+								x <- 1;
+								factorial <- 1;
+								mientras x <= numer Hacer
+									factorial <- factorial * x;
+									x <- x + 1;
+								FinMientras
+								escribir " el factorial del numero ",numer," = ",factorial,": ";
+							FinSi
+							esperar 4 segundos
+						9:
+							Escribir ejercicio29
+							Definir contraseña Como Cadena
+							Mientras Longitud(contraseña) < 10 Hacer
+								Escribir "Ingrese una contraseña con al menos 10 digitos:"
+								Leer contraseña
+							Fin Mientras
+							Escribir "Contraseña valida. ¡exito!"
+							esperar 4 segundos
+						10:
+							Escribir ejercicio30
+							Definir total,a,b,n,x Como Entero;
+							Escribir "Ingresa el total de numeros";
+							leer total;
+							x <- 1;
+							Mientras x <= total Hacer
+								Escribir "Ingresa un numero";
+								leer n;
+								si x == 1 Entonces
+									a <- n;
+									b <- n;
+								SiNo
+									si n > a Entonces
+										a <- n;
+									SiNo
+										si n < b Entonces
+											b <- n;
+										FinSi
+									FinSi
+								FinSi
+								x <- x + 1;
+							FinMientras
+							Escribir "El numero mayor es: ",a;
+							Escribir "El numero menor es: ",b;
+							esperar 4 segundos
+						11:
+							Escribir ejercicio31
+							Definir edad, peso, estatura Como Entero
+							Definir edad_promedio, peso_promedio, estatura_promedio Como Real
+							Definir contador_edad18_25, contador_mayores36 Como Entero
+							Definir suma_peso18_35 Como Real
+							Definir cantidadPersonas Como Entero
+							
+							edad_promedio = 0
+							peso_promedio = 0
+							estatura_promedio = 0
+							contador_edad18_25 = 0
+							contador_mayores36 = 0
+							suma_peso18_35 = 0
+							cantidad_personas = 0
+							
+							Escribir "Ingrese la edad, peso y estatura de cada persona (terminar con cero):"
+							
+							Repetir
+								Leer edad, peso, estatura
+								
+								Si edad <> 0 Entonces
+									edad_promedio = edad_promedio + edad
+									pesoPromedio = peso_promedio + peso
+									estatura_promedio = estatura_promedio + estatura
+									
+									Si edad >= 18 Y edad <= 25 Entonces
+										contador_edad18_25 = contador_edad18_25 + 1
+									FinSi
+									
+									Si edad > 36 Entonces
+										contador_mayores36 = contador_mayores36 + 1
+									FinSi
+									
+									Si edad >= 18 Y edad <= 35 Entonces
+										suma_peso18_35 = suma_peso18_35 + peso
+									FinSi
+									
+									cantidad_personas = cantidad_personas + 1
+								FinSi
+								
+							Hasta Que edad = 0
+							
+							edad_promedio = edad_promedio / cantidad_personas
+							peso_promedio = peso_promedio / cantidad_personas
+							estatura_promedio = estatura_promedio / cantidad_personas
+							
+							Escribir "Edad promedio de todas las personas en la muestra:", edad_promedio
+							Escribir "Peso promedio de todas las personas en la muestra:", peso_promedio
+							Escribir "Estatura promedio de todas las personas en la muestra:", estatura_promedio
+							Escribir "Cantidad de personas con edad entre los 18 y 25 años:", contador_edad18_25
+							Escribir "Cantidad de personas mayores a 36 años:", contador_mayores36
+							
+							Si contador_edad18_25 > 0 Entonces
+								promedio_peso18_35 = suma_peso18_35 / contador_edad18_25
+								Escribir "Promedio de peso de las personas con edades entre 18 y 35 años:", promedio_peso18_35
+							FinSi
+						12:
+							Escribir ejercicio32
+							definir x, n, resultado Como Entero;
+							escribir "dame un numero: ";
+							leer n;
+							
+							para x <- 1 Hasta 10 Hacer
+								resultado <- n * x;
+								escribir n, " x ",x," = ",resultado;
+							FinPara
+							esperar 4 segundos
+						13:
+							Escribir ejercicio33
+							definir a, b, x, producto Como Entero;
+							escribir " ingresa dos numeros: ";
+							leer a, b;
+							producto <- 0;
+							para x <- 1 Hasta a Con Paso 1 Hacer
+								producto <- producto + b;
+							FinPara
+							escribir " el producto de los 2 numeros es: ",producto;
+							esperar 4 segundos
+						14:
+							Escribir ejercicio34
+							Definir numero, suma, contador Como Entero
+							Definir promedio Como Real
+							suma <- 0
+							contador <- 0
+							Escribir "Ingrese una serie de números positivos. Ingrese 0 para terminar:"
+							Leer numero
+							Mientras numero <> 0 Hacer
+								suma <- suma + numero
+								contador <- contador + 1
+								
+								Escribir "Ingrese otro número (o ingrese 0 para terminar):"
+								Leer numero
+							Fin Mientras
+							Si contador > 0 Entonces
+								promedio <- suma / contador
+								Escribir "El promedio de la serie de números es:", promedio
+							Sino
+								Escribir "No se ingresaron números validos."
+							Fin Si
+							esperar 4 segundos
+						15:
+							Escribir ejercicio35
+							Definir dividendo, divisor, cociente, resto Como Entero
+							
+							Escribir "Ingrese el dividendo:"
+							Leer dividendo
+							
+							Escribir "Ingrese el divisor:"
+							Leer divisor
+							
+							cociente <- 0
+							resto <- dividendo
+							
+							Mientras resto >= divisor Hacer
+								resto <- resto - divisor
+								cociente <- cociente + 1
+							Fin Mientras
+							
+							Escribir "Cociente:", cociente
+							Escribir "Resto:", resto
+						16:
+							Escribir "Regresando al menu anterior"
+							Esperar 5 Segundos
+							
+					FinSegun
+				FinMientras
+			4:
+				Escribir "Gracias por usar el	sistema"
+				Esperar 5 Segundos
+			De Otro Modo:
+				Escribir "La opcion ingresada no corresponde al menu, vuelva a intentar"
+				esperar 4 segundos
+		FinSegun
+	FinMientras
+	
+FinAlgoritmo
